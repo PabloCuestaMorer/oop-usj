@@ -1,19 +1,27 @@
-// EjemploClase2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// ej14.1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include "Producto.h"
+#include "Circulo.h"
+
+using namespace std;
+
 
 int main()
 {
-	Producto p;
-	p.modificarPrecio(90);
-	p.mostrar();
+	// Need to use the 'new' keyword to create instances of the class
+	// In C++, objects created with the new keyword must be assigned to a pointer variable
+	Circulo* c1 = new Circulo(5, 4, 4);
+	Circulo* c2 = new Circulo();
+	Circulo* c3 = new Circulo(5);
 
-	Producto p1(4, 67);
-	p1.mostrar();
+	// Need to use the '->' operator to access class members on pointers
+	c1->visualizar();
+	c2->visualizar();
+	c3->visualizar();
+	cout << c1->longitud() << endl;
 
-	Producto p2 ()
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
