@@ -6,14 +6,15 @@
 
 int main()
 {
-	Stack* stack = new Stack();
-	stack->push('a');
-	stack->push('b');
-	stack->push('c');
-	stack->printStack();
-	stack->pop();
-	stack->push('d');
-	stack->printStack();
+	Stack stack;
+	stack.iniStack();
+	stack.push('a');
+	stack.push('b');
+	stack.push('c');
+	stack.printStack();
+	stack.pop();
+	stack.push('d');
+	stack.printStack();
 
 	
 }

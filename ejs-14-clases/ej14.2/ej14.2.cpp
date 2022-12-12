@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "Registro.h";
+#include "Registro.h"
 
 using namespace std;
 
