@@ -11,27 +11,28 @@ class Cadena
 
 public:
 	Cadena();
-	Cadena(const char*);
-	Cadena(char);
-	Cadena(const Cadena&);	//paso por referencia con el const
+	Cadena(const char* string);
+	Cadena(char a);
+	// Copy constructor
+	Cadena(const Cadena& cadena);
 
 	void cambiaCaracter(int, char);
 	void muestraCaracter(int) const;
 	int getLongitud() const { return longitud; }
 	void muestra(void);
-	void agnadir(const char*);
+	void addChar(const char a);
+	void addString(const char*);
+	void invertirCadena();
+	void toUpper();
+	bool isPalindrome();
 
 	// Operators overloading
 	Cadena operator+(const Cadena&);
+	Cadena operator+(const char&);
+	Cadena operator-(const Cadena&);
 	Cadena& operator=(const Cadena&);
+	Cadena& operator=(const char&);
 	friend ostream& operator<<(ostream&, Cadena&);
-	/*char operator[](int);*/
-
-	/*
-	* Pregunta examen.
-	* Sobrecargar[] pero que me modifique lo de esa posicion.
-	* Paso por referencia para poder modificar el char en ese index
-	*/
-	char& operator[](int);
+	char& operator[](int index);
 };
 

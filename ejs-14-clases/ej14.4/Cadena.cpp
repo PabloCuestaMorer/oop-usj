@@ -3,7 +3,7 @@
 
 Cadena::Cadena()
 {
-	longitud = 1;
+	longitud = 0;
 	cadena = new char[longitud + 1];
 	cadena[longitud] = '\0';
 
@@ -12,6 +12,7 @@ Cadena::Cadena()
 Cadena::Cadena(const char* cadena)
 {
 	longitud = (int)strlen(cadena);
+	// longitud + 1 --> '\0'
 	this->cadena = new char[longitud + 1];
 	strcpy(this->cadena, cadena);
 }
@@ -20,18 +21,30 @@ Cadena::Cadena(char a)
 {
 	longitud = 1;
 	cadena = new char[longitud + 1];
-	cadena[longitud] = '\0';
 	cadena[0] = a;
+	cadena[longitud] = '\0';
 }
 
 void Cadena::cambiaCaracter(int i, char a)
 {
-	cadena[i] = a;
+	if (0 <= i && i < longitud)
+	{
+		cadena[i] = a;
+	} else
+	{
+		cerr << "ERROR: index out bound exception" << endl;
+	}
 }
 
 void Cadena::muestraCaracter(int i) const
 {
-	cout << " [ " << i << " ] : " << cadena[i] << endl;
+	if (0 <= i < longitud)
+	{
+		cout << " [ " << i << " ] : " << cadena[i] << endl;
+	} else
+	{
+		cerr << "ERROR: index out bound exception" << endl;
+	}
 }
 
 int Cadena::getLongitud() const
@@ -41,14 +54,16 @@ int Cadena::getLongitud() const
 
 void Cadena::muestra(void) const
 {
-	if (longitud > 0)
-	{
-		for (size_t i = 0; i < longitud; i++)
-		{
-			cout << "[ " << i << " ]: " << cadena[i] << endl;
-		}
-		cout << endl;
-	}
+
+	//if (longitud > 0)
+	//{
+	//	for (size_t i = 0; i < longitud; i++)
+	//	{
+	//		cout << "[ " << i << " ]: " << cadena[i] << endl;
+	//	}
+	//	cout << endl;
+	//}
+	cout << "La cadena es :" << cadena << endl;
 }
 
 void Cadena::addChar(const char a)
