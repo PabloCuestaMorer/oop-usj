@@ -36,15 +36,25 @@ void Complejo::setImg(double img)
 	this->img = img;
 }
 
-Complejo Complejo::operator+(const Complejo& complejo)
-{
 
+const Complejo Complejo::operator+(const Complejo& complejo)
+{
 	return Complejo(real + complejo.real, img + complejo.img);
 }
 
 Complejo Complejo::operator-(const Complejo& complejo)
 {
 	return Complejo(real - complejo.real, img - complejo.img);
+}
+
+Complejo Complejo::operator*(const Complejo& complejo)
+{
+	return Complejo(real * complejo.real, img * complejo.img);
+}
+
+Complejo Complejo::operator/(const Complejo& complejo)
+{
+	return Complejo(real / complejo.real, img / complejo.img);
 }
 
 Complejo& Complejo::operator=(const Complejo& complejo)

@@ -11,21 +11,20 @@ private:
 public:
 	// Constructores
 	Complejo();
-	Complejo(double real, double img = 0.0);
+	Complejo(double real, double img);
+	// Constructor copia (no hace falta en este caso, no hay punteros)
 	Complejo(const Complejo& complejo);
-	// Pedir datos por consola
+	// Setters/Getters
 	void setData();
 	void setReal(double real);
 	void setImg(double img);
-	double getReal() { return real; }
-	double getImg() { return img; }
+	double getReal() { return real; } const
+	double getImg() { return img; } const
 
 	// Sobrecarga de operadores aritméticos
 	Complejo operator+ (const Complejo&);
 	Complejo operator- (const Complejo&);
-	// Opcional
 	Complejo operator* (const Complejo&);
-	// Opcional
 	Complejo operator/ (const Complejo&);
 	// Sobrecarga del operador de asignación
 	Complejo& operator= (const Complejo&);
