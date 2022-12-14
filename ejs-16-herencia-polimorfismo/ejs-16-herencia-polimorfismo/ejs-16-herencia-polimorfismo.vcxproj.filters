@@ -15,28 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ej_16_1.cpp">
+    <ClCompile Include="ejs-16-herencia-polimorfismo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Circulo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Geometrico.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cuadrado.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Circulo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Geometrico.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cuadrado.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

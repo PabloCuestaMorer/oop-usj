@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1ad68e94-28d1-409a-84ea-79454b37c60b}</ProjectGuid>
-    <RootNamespace>Ej161</RootNamespace>
+    <ProjectGuid>{7a7a36fb-6eba-41c4-bbf0-b5750355ee6a}</ProjectGuid>
+    <RootNamespace>ejs16herenciapolimorfismo</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,15 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Circulo.cpp" />
-    <ClCompile Include="Cuadrado.cpp" />
-    <ClCompile Include="Ej_16_1.cpp" />
-    <ClCompile Include="Geometrico.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Circulo.h" />
-    <ClInclude Include="Cuadrado.h" />
-    <ClInclude Include="Geometrico.h" />
+    <ClCompile Include="ejs-16-herencia-polimorfismo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

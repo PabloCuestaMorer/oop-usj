@@ -2,5 +2,5 @@
 
 void Geometrico::imprimirCentro() const
 {
-	cout << xC << " " << yC << endl;
+	cout << "xC: " << xC << ", yC: " << yC << endl;
 }

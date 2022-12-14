@@ -1,4 +1,7 @@
 #include "Circulo.h"
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 
 Circulo::Circulo(float xC, float yC, float radio) : Geometrico(xC, yC)
 {
@@ -7,5 +10,8 @@ Circulo::Circulo(float xC, float yC, float radio) : Geometrico(xC, yC)
 
 void Circulo::calcularArea()
 {
-	cout << "El area del circulo es: " << 3.14*radio*radio << endl
+	double area = M_PI * pow(this->radio, 2);
+	cout << "El area del circulo es: " << area << endl;
 }
+
+
