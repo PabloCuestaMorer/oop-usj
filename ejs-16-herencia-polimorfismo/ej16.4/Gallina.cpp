@@ -1,5 +1,6 @@
 #include "Gallina.h"
-Gallina::Gallina(string nombre, int patas) {
+Gallina::Gallina(string nombre, int patas)
+{
 	this->nombre = nombre;
 	this->patas = patas;
 }

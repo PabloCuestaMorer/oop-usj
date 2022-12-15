@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ej_16.4.cpp">
+    <ClCompile Include="ej16.4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Animal.cpp">
