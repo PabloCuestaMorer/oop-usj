@@ -11,6 +11,7 @@ class Cadena
 
 public:
 	Cadena();
+	~Cadena();
 	Cadena(const char* string);
 	Cadena(char a);
 	// Copy constructor
@@ -34,5 +35,6 @@ public:
 	Cadena& operator=(const char&);
 	friend ostream& operator<<(ostream&, Cadena&);
 	char& operator[](int index);
+
 };
 

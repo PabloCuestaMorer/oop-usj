@@ -9,6 +9,12 @@ Cadena::Cadena()
 	cadena[longitud] = '\0';
 }
 
+
+Cadena::~Cadena()
+{
+	delete[] cadena;
+}
+
 Cadena::Cadena(const char* string)
 {
 	longitud = (int)(strlen(string));
@@ -243,4 +249,5 @@ char& Cadena::operator[](int i)
 
 	return cadena[i];
 }
+
 
