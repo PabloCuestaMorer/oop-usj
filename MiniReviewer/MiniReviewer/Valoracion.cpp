@@ -1,10 +1,5 @@
 #include "Valoracion.h"
 
-Valoracion::Valoracion()
-{
-}
+Valoracion::Valoracion(): puntuacion(0), comentario(""){}
 
-Valoracion::Valoracion(float puntuacion, string comentario)
-{
-
-}
+Valoracion::Valoracion(float puntuacion, string comentario): puntuacion(puntuacion), comentario(comentario){}

@@ -1,9 +1,7 @@
-// MiniReviewer.cpp
-
 #include <iostream>
-#include "ProductoMultimedia.h"
-#include "Pelicula.h"
-#include "Serie.h"
+#include "../MiniReviewer/ProductoMultimedia.h"
+#include "../MiniReviewer/Pelicula.h"
+#include "../MiniReviewer/Serie.h"
 
 #define MAX_PRODUCTOS 10
 
@@ -31,8 +29,12 @@ int main()
 	catalogo[1]->addValoracion(Valoracion(8, "Brillante y peculiar comedia negra con la actuacion experta de Bryan Cranston ..."));
 
 
-	for (int i = 0; i < numProductos; i++) {
+	for (int i = 0; i < numProductos; i++)
+	{
 		catalogo[i]->mostrarProducto();
+		catalogo[i]->calcularMedia();
 		cout << endl;
 	}
+
+	return 0;
 }

@@ -1,5 +1,7 @@
 #pragma once
 #include "ProductoMultimedia.h"
+
+
 class Serie :
 	public ProductoMultimedia
 {
@@ -9,5 +11,6 @@ public:
 	Serie();
 	Serie(int id, string titulo, int anio_estreno, Genero genero, string sinopsis, int num_temporadas);
 	void mostrarProducto();
+	void calcularMedia();
 };
 
