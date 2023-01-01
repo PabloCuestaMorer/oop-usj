@@ -6,6 +6,10 @@ using namespace std;
 template <class T>
 class Stack
 {
+private:
+    int size;
+    int currentPosition;
+    T* data;
 
 public:
     // Constructor
@@ -29,10 +33,7 @@ public:
     // Comprobar si está vacía
     bool isEmpty() const;
 
-private:
-	int size;
-	int currentPosition;
-	T* data;
+
 };
 
 template<class T>

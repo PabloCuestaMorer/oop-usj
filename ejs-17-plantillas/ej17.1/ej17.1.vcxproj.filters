@@ -18,12 +18,12 @@
     <ClCompile Include="ej17.1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MiVector.cpp">
+    <ClCompile Include="Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MiVector.h">
+    <ClInclude Include="Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

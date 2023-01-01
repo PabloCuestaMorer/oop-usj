@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ejs-17-plantillas", "ejs-17
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ej17.1", "ej17.1\ej17.1.vcxproj", "{7AC9BFFE-5DDC-4B48-AA3D-8EE3798E7BEF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ej17.2", "ej17.2\ej17.2.vcxproj", "{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{7AC9BFFE-5DDC-4B48-AA3D-8EE3798E7BEF}.Release|x64.Build.0 = Release|x64
 		{7AC9BFFE-5DDC-4B48-AA3D-8EE3798E7BEF}.Release|x86.ActiveCfg = Release|Win32
 		{7AC9BFFE-5DDC-4B48-AA3D-8EE3798E7BEF}.Release|x86.Build.0 = Release|Win32
+		{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}.Debug|x64.ActiveCfg = Debug|x64
+		{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}.Debug|x64.Build.0 = Debug|x64
+		{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}.Debug|x86.ActiveCfg = Debug|Win32
+		{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}.Debug|x86.Build.0 = Debug|Win32
+		{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}.Release|x64.ActiveCfg = Release|x64
+		{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}.Release|x64.Build.0 = Release|x64
+		{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}.Release|x86.ActiveCfg = Release|Win32
+		{BF0C68A5-56A9-44E4-8199-A5DCA78FD6CA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
