@@ -28,12 +28,12 @@ int main()
 	}
 
 	Profesor* profesores[2];
-	//profesor[0] = new Asociado("John Doe", "Matematicas", 15.0);
-	//profesor[1] = new PDI("Fulano Detal", "Software", "Titular");
+	profesores[0] = new Asociado("John Doe", "Matematicas", 15.0);
+	profesores[1] = new PDI("Fulano Detal", "Software", "Titular");
 
 	for (int i = 0; i < 2; i++)
 	{
-		//profesor[i]->mostrarHoras();
+		profesores[i]->mostrarHoras();
 	}
 
 	return 0;

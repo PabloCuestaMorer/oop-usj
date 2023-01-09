@@ -13,6 +13,6 @@ protected:
 public:
 	Profesor();
 	Profesor(string nombre, string departamento);
-	virtual void mostrarHoras() const = 0;
+	virtual void mostrarHoras() = 0;
 };
 

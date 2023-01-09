@@ -11,6 +11,6 @@ Asociado::Asociado(string nombre, string departamento, float porcentaje_jornada)
 	this->porcentaje_jornada = porcentaje_jornada;
 }
 
-void Asociado::mostrarHoras() const
+void Asociado::mostrarHoras()
 {
 }

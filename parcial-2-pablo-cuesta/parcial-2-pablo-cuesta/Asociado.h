@@ -9,6 +9,6 @@ private:
 public:
     Asociado();
     Asociado(string nombre, string departamento,float porcentaje_jornada);
-    void mostrarHoras() const;
+    void mostrarHoras();
 };
 
