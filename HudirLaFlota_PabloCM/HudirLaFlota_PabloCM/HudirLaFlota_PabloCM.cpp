@@ -1,20 +1,93 @@
-// HudirLaFlota_PabloCM.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// HudirLaFlota_PabloCM.cpp
 
 #include <iostream>
+#include "Game.h"
+using namespace std;
+
+void displayMenu()
+{
+    cout << "Welcome to the game! Please select an option:" << endl;
+    cout << "1. New game" << endl;
+    cout << "2. Load game" << endl;
+    cout << "3. Exit" << endl;
+    cout << "Enter your selection: ";
+}
+
+void startNewGame()
+{
+    cout << "Starting a new game..." << endl;
+
+    Game game;
+
+    Player player1;
+    Player player2;
+
+    cout << "Enter the name of player 1: ";
+    string name1;
+    cin >> name1;
+    player1.setName(name1);
+
+    cout << "Enter the name of player 2: ";
+    string name2;
+    cin >> name2;
+    player2.setName(name2);
+
+    game.setPlayer1(player1);
+    game.setPlayer2(player2);
+
+    while (true)
+    {
+        cout << "In game menu:" << endl;
+        cout << "1. Continue playing" << endl;
+        cout << "2. Save and exit to main menu" << endl;
+        cout << "Enter your selection: ";
+
+        int selection;
+        cin >> selection;
+
+        switch (selection)
+        {
+            case 1:
+                cout << "Continuing the game..." << endl;
+                break;
+            case 2:
+                cout << "Saving and exiting to main menu..." << endl;
+                return;
+            default:
+                cout << "Invalid selection. Please try again." << endl;
+                break;
+        }
+    }
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	
+    while (true)
+    {
+        displayMenu();
+
+        int selection;
+        cin >> selection;
+
+        switch (selection)
+        {
+            case 1:
+                cout << "Starting a new game..." << endl;
+                startNewGame();
+                break;
+            case 2:
+                cout << "Loading a saved game..." << endl;
+                break;
+            case 3:
+                cout << "Exiting the program..." << endl;
+                return 0;
+            default:
+                cout << "Invalid selection. Please try again." << endl;
+                break;
+        }
+    }
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
