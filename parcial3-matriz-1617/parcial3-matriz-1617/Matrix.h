@@ -9,6 +9,7 @@ template <class T> class Matrix
 private:
 	T* data; // pointer to store the matrix --> copy constructor + destructor + overload operator=
 	int rows, cols; // number of rows and columns
+
 public:
 	/**
 	 * Empty constructor.
@@ -28,14 +29,6 @@ public:
 	Matrix(int r, int c) : rows(r), cols(c)
 	{
 		data = new T[r * c];
-		// Fill the matrix with null values
-		for (int i = 0; i < rows; i++)
-		{
-			for (int j = 0; j < cols; j++)
-			{
-				data[i * cols + j] = NULL;
-			}
-		}
 	}
 
 

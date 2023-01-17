@@ -32,6 +32,7 @@ int main()
 		cout << "An unknown exception occurred" << endl;
 	}
 
+	// Test out_of_range
 	try
 	{
 		matrix(2, 3) = 10;
@@ -45,6 +46,7 @@ int main()
 		cout << "An unknown exception occurred" << endl;
 	}
 
+
 	cout << "Number of rows: " << matrix.getRows() << endl; // Output: Number of rows: 3
 	cout << "Number of cols: " << matrix.getCols() << endl; // Output: Number of cols: 4
 	cout << "Matrix capacity: " << matrix.getCapacity() << endl; // Output: Matrix capacity: 12
@@ -56,7 +58,8 @@ int main()
 	cout << "Number of cols after resize: " << matrix.getCols() << endl; // Output: Number of cols after resize: 5
 	cout << "Matrix capacity after resize: " << matrix.getCapacity() << endl;
 	// print the matrix (with the overload)
-	//count << matrix;
+	// count << matrix;
+	matrix.printMatrix();
 	return 0;
 }
 
