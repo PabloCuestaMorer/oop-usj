@@ -130,7 +130,8 @@
     <ClCompile Include="parcial3-matriz-1617.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Matriz.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MatrixOutOfRangeException.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,14 +2,15 @@
 #include <exception>
 #include <sstream>
 using namespace std;
-class ExceptionUnderflow : public exception
+class MatrixOutOfRangeException : public out_of_range
 {
 public:
-	const char* what() const throw()
+	MatrixOutOfRangeException(int i, int j, int r, int c) :
+		out_of_range(generateErrorMessage(i, j, r, c))
+		// if I want just a simple msj 
+		// out_of_range("msj")
 	{
-		return "Exception: stack is underflow/empty";
 	}
-
 private:
 	string generateErrorMessage(int i, int j, int r, int c)
 	{
@@ -17,5 +18,7 @@ private:
 		message << "Error: trying to access element at (" << i << ", " << j << ") in matrix of size " << r << "x" << c;
 		return message.str();
 	}
+
+
 };
 

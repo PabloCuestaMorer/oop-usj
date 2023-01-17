@@ -20,7 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Matriz.h">
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOutOfRangeException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
