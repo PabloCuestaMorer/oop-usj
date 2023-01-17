@@ -74,7 +74,7 @@ public:
 		{
 			for (int j = 0; j < matrix.cols; j++)
 			{
-				os << matrix.data[i * matrix.cols + j] << " ";
+				os << matrix.data[i * matrix.cols + j] << "\t";
 			}
 			os << endl;
 		}
@@ -90,10 +90,11 @@ public:
 		{
 			for (int j = 0; j < cols; j++)
 			{
-				cout << data[i * cols + j] << " ";
+				cout << data[i * cols + j] << "\t";
 			}
 			cout << endl;
 		}
+		cout << endl;
 	}
 
 	/**
