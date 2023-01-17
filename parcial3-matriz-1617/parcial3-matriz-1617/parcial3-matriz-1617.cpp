@@ -58,8 +58,7 @@ int main()
 	cout << "Number of cols after resize: " << matrix.getCols() << endl; // Output: Number of cols after resize: 5
 	cout << "Matrix capacity after resize: " << matrix.getCapacity() << endl;
 	// print the matrix (with the overload)
-	// count << matrix;
-	matrix.printMatrix();
+	cout << matrix;
 	return 0;
 }
 
