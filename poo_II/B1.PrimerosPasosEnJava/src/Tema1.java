@@ -13,7 +13,9 @@ public class Tema1 {
 	 */
 	public static void main(String[] args) {
 		ejercicio1();
+
 		ejercicio2();
+
 		System.out.println("Tema1. ejercicio3");
 		int a = 120;
 		int b = 50;
@@ -25,8 +27,14 @@ public class Tema1 {
 		String isPrime = isPrime(primeNum) ? "es primo." : "no es primo.";
 		System.out.printf("El numero %d %s\n", primeNum, isPrime);
 		int fibonacciIndex = 6;
-		System.out.printf("El número de Fibonacci para la posicion %d es %d.\n", fibonacciIndex, fibonacci(fibonacciIndex));
+		System.out.printf("El número de Fibonacci para la posicion %d es %d.\n\n", fibonacciIndex,
+				fibonacci(fibonacciIndex));
 
+		ejercicio4();
+
+		int altura = 4;
+		int orientation = 360;
+		ejercicio5(altura, orientation);
 	}
 
 	private static void ejercicio1() {
@@ -66,7 +74,7 @@ public class Tema1 {
 		return num * factorial(num - 1);
 	}
 
-	public static boolean isPrime(int n) {
+	private static boolean isPrime(int n) {
 		// limits negatives
 		if (n <= 1) {
 			return false;
@@ -78,11 +86,103 @@ public class Tema1 {
 		}
 		return true;
 	}
-	public static int fibonacci(int n) {
+
+	private static int fibonacci(int n) {
 		// limits negatives
-	    if (n <= 1) {
-	        return n;
-	    }
-	    return fibonacci(n - 1) + fibonacci(n - 2);
+		if (n <= 1) {
+			return n;
+		}
+		return fibonacci(n - 1) + fibonacci(n - 2);
 	}
+
+	private static void ejercicio4() {
+		System.out.println("Tema1.ejercicio4()");
+		System.out.println("Salto de línea: System.out.println(...) or \"\\n\"");
+		System.out.println("Salto de línea: \n -\n -\n fin salto de línea");
+		System.out.println("Escape characters en java con \"\\\" ej: \"\"\"\"\"");
+		System.out.println("Imprimir la secuencia que permite imprimir saltos de línea: \\n");
+		System.out.println();
+	}
+
+	public static void ejercicio5(int rows, int orientation) {
+		System.out.println("Tema1.ejercicio5():");
+		System.out.println("Imprimir pirámide altura " + rows + " rotación " + orientation + "º:");
+		switch (orientation) {
+		case 90:
+			for (int i = 1; i <= rows; i++) {
+				for (int j = 1; j <= rows - i; j++) {
+					System.out.print("-");
+				}
+				for (int j = 1; j <= 2 * i - 1; j++) {
+					System.out.print("*");
+				}
+				for (int j = 1; j <= rows - i; j++) {
+					System.out.print("-");
+				}
+				System.out.println();
+			}
+			break;
+		case 270:
+			for (int i = 1; i <= rows; i++) {
+				for (int j = 1; j <= i - 1; j++) {
+					System.out.print("-");
+				}
+				for (int j = 1; j <= 2 * (rows - i) + 1; j++) {
+					System.out.print("*");
+				}
+				for (int j = 1; j <= i - 1; j++) {
+					System.out.print("-");
+				}
+				System.out.println();
+			}
+			break;
+		case 180:
+			for (int i = 1; i <= rows; i++) {
+				for (int j = 1; j <= i; j++) {
+					System.out.print("* ");
+				}
+				for (int j = 1; j <= rows - i; j++) {
+					System.out.print("' ");
+				}
+				System.out.println();
+			}
+
+			for (int i = rows - 1; i >= 1; i--) {
+				for (int j = 1; j <= i; j++) {
+					System.out.print("* ");
+				}
+				for (int j = 1; j <= rows - i; j++) {
+					System.out.print("' ");
+				}
+				System.out.println();
+			}
+			break;
+		case 360:
+			for (int i = 1; i <= rows; i++) {
+				for (int j = 1; j <= rows - i; j++) {
+					System.out.print("' ");
+				}
+				for (int j = 1; j <= i; j++) {
+					System.out.print("* ");
+				}
+				System.out.println();
+			}
+
+			for (int i = rows - 1; i >= 1; i--) {
+				for (int j = 1; j <= rows - i; j++) {
+					System.out.print("' ");
+				}
+				for (int j = 1; j <= i; j++) {
+					System.out.print("* ");
+				}
+				System.out.println();
+			}
+			break;
+		default:
+			System.out.println("Invalid rotation angle. Please choose a rotation angle of 0, 90, 180, or 270 degrees.");
+			break;
+		}
+		System.out.println();
+	}
+
 }
