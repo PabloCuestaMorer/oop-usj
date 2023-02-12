@@ -1,4 +1,7 @@
 package beans;
+
+import java.util.Arrays;
+
 /**
  * 
  */
@@ -33,9 +36,14 @@ public class Tema1 {
 
 		ejercicio4();
 
+		ejercicio5();
+
+		int boardSize = 8;
+		ejercicio6(boardSize);
+
 		int altura = 4;
 		int orientation = 360;
-		ejercicio5(altura, orientation);
+		ejercicio7(altura, orientation);
 	}
 
 	private static void ejercicio1() {
@@ -105,7 +113,39 @@ public class Tema1 {
 		System.out.println();
 	}
 
-	public static void ejercicio5(int rows, int orientation) {
+	private static void ejercicio5() {
+		System.out.println("Tema1.ejercicio5()");
+		System.out.println();
+		System.out.println("*******************");
+		System.out.println("****ASCII TABLE****");
+		System.out.println("*******************");
+		System.out.println("Value \t HEX \t Symbol");
+		for (int i = 0; i < 256; i++) {
+			char asciiSymbol = (char) i;
+			String hex = Integer.toHexString(i);
+			System.out.println(i + " \t " + hex + " \t " + asciiSymbol);
+		}
+		System.out.println();
+	}
+
+	private static void ejercicio6(int n) {
+		System.out.println("Tema1.ejercicio6()");
+		char[][] board = new char[n][n];
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) {
+				if ((j % 2 == 0 && i % 2 == 0) || (j % 2 != 0 && i % 2 != 0)) {
+					board[i][j] = 'X';
+				} else {
+					board[i][j] = 'O';
+				}
+				System.out.print(board[i][j] + " ");
+			}
+			System.out.println(" ");
+		}
+		System.out.println();
+	}
+
+	private static void ejercicio7(int rows, int orientation) {
 		System.out.println("Tema1.ejercicio5():");
 		System.out.println("Imprimir pirámide altura " + rows + " rotación " + orientation + "º:");
 		switch (orientation) {
