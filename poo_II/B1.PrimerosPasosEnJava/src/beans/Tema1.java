@@ -1,7 +1,5 @@
 package beans;
 
-import java.util.Arrays;
-
 /**
  * 
  */
@@ -42,7 +40,7 @@ public class Tema1 {
 		ejercicio6(boardSize);
 
 		int altura = 4;
-		int orientation = 360;
+		int orientation = 90;
 		ejercicio7(altura, orientation);
 	}
 
@@ -84,7 +82,6 @@ public class Tema1 {
 	}
 
 	private static boolean isPrime(int n) {
-		// limits negatives
 		if (n <= 1) {
 			return false;
 		}
@@ -97,7 +94,6 @@ public class Tema1 {
 	}
 
 	private static int fibonacci(int n) {
-		// limits negatives
 		if (n <= 1) {
 			return n;
 		}
@@ -131,44 +127,44 @@ public class Tema1 {
 	private static void ejercicio6(int n) {
 		System.out.println("Tema1.ejercicio6()");
 		char[][] board = new char[n][n];
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board.length; j++) {
-				if ((j % 2 == 0 && i % 2 == 0) || (j % 2 != 0 && i % 2 != 0)) {
-					board[i][j] = 'X';
+		for (int row = 0; row < board.length; row++) {
+			for (int column = 0; column < board.length; column++) {
+				if ((column % 2 == 0 && row % 2 == 0) || (column % 2 != 0 && row % 2 != 0)) {
+					board[row][column] = 'X';
 				} else {
-					board[i][j] = 'O';
+					board[row][column] = 'O';
 				}
-				System.out.print(board[i][j] + " ");
+				System.out.print(board[row][column] + " ");
 			}
 			System.out.println(" ");
 		}
 		System.out.println();
 	}
 
-	private static void ejercicio7(int rows, int orientation) {
-		System.out.println("Tema1.ejercicio5():");
-		System.out.println("Imprimir pirámide altura " + rows + " rotación " + orientation + "º:");
+	private static void ejercicio7(int n, int orientation) {
+		System.out.println("Tema1.ejercicio7():");
+		System.out.println("Imprimir pirámide altura " + n + " rotación " + orientation + "º:");
 		switch (orientation) {
 		case 90:
-			for (int i = 1; i <= rows; i++) {
-				for (int j = 1; j <= rows - i; j++) {
+			for (int i = 1; i <= n; i++) {
+				for (int j = 1; j <= n - i; j++) {
 					System.out.print("-");
 				}
 				for (int j = 1; j <= 2 * i - 1; j++) {
 					System.out.print("*");
 				}
-				for (int j = 1; j <= rows - i; j++) {
+				for (int j = 1; j <= n - i; j++) {
 					System.out.print("-");
 				}
 				System.out.println();
 			}
 			break;
 		case 270:
-			for (int i = 1; i <= rows; i++) {
+			for (int i = 1; i <= n; i++) {
 				for (int j = 1; j <= i - 1; j++) {
 					System.out.print("-");
 				}
-				for (int j = 1; j <= 2 * (rows - i) + 1; j++) {
+				for (int j = 1; j <= 2 * (n - i) + 1; j++) {
 					System.out.print("*");
 				}
 				for (int j = 1; j <= i - 1; j++) {
@@ -178,29 +174,29 @@ public class Tema1 {
 			}
 			break;
 		case 180:
-			for (int i = 1; i <= rows; i++) {
+			for (int i = 1; i <= n; i++) {
 				for (int j = 1; j <= i; j++) {
 					System.out.print("* ");
 				}
-				for (int j = 1; j <= rows - i; j++) {
+				for (int j = 1; j <= n - i; j++) {
 					System.out.print("' ");
 				}
 				System.out.println();
 			}
 
-			for (int i = rows - 1; i >= 1; i--) {
+			for (int i = n - 1; i >= 1; i--) {
 				for (int j = 1; j <= i; j++) {
 					System.out.print("* ");
 				}
-				for (int j = 1; j <= rows - i; j++) {
+				for (int j = 1; j <= n - i; j++) {
 					System.out.print("' ");
 				}
 				System.out.println();
 			}
 			break;
 		case 360:
-			for (int i = 1; i <= rows; i++) {
-				for (int j = 1; j <= rows - i; j++) {
+			for (int i = 1; i <= n; i++) {
+				for (int j = 1; j <= n - i; j++) {
 					System.out.print("' ");
 				}
 				for (int j = 1; j <= i; j++) {
@@ -209,8 +205,8 @@ public class Tema1 {
 				System.out.println();
 			}
 
-			for (int i = rows - 1; i >= 1; i--) {
-				for (int j = 1; j <= rows - i; j++) {
+			for (int i = n - 1; i >= 1; i--) {
+				for (int j = 1; j <= n - i; j++) {
 					System.out.print("' ");
 				}
 				for (int j = 1; j <= i; j++) {
