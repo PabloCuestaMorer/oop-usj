@@ -42,6 +42,10 @@ public class Persona {
 		}
 	}
 
+	/**
+	 * asñdfañsdflkajsñd
+	 * @param poblacion
+	 */
 	// 1.5. Un método unDiaMas, que recibe un objeto de tipo Población y que se
 	// encarga de simular el día de dicha persona.
 	public void unDiaMas(Poblacion poblacion) {

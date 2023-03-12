@@ -19,25 +19,45 @@ public class Poblacion {
 	public Poblacion(int numPersonas) {
 		this.numPersonas = numPersonas;
 		personas = new Persona[numPersonas];
+		addPersonas(numPersonas);
 		numInfectados = 0;
 		numCurados = 0;
+	}
 
+	/**
+	 * @param numPersonas
+	 */
+	private void addPersonas(int numPersonas) {
 		for (int i = 0; i < numPersonas; i++) {
 			Random rand = new Random();
-			double probabilidad = rand.nextDouble();
-			if (probabilidad < 0.1) {
+			int probabilidad = rand.nextInt(1, 10);
+			switch (probabilidad) {
+			case 1: {
 				personas[i] = new Sanitario(true, generarNumPacientes());
-			} else if (probabilidad < 0.2) {
+				break;
+			}
+			case 2: {
 				personas[i] = new Sanitario(false, generarNumPacientes());
-			} else if (probabilidad < 0.3) {
+				break;
+			}
+			case 3: {
 				personas[i] = new Hipocondriaco(true);
-			} else if (probabilidad < 0.5) {
+				break;
+			}
+			case 4:
+			case 5: {
 				personas[i] = new Hipocondriaco(false);
-			} else if (probabilidad < 0.6) {
+				break;
+			}
+			case 6: {
 				personas[i] = new Creyente();
-			} else if (probabilidad < 0.7) {
+				break;
+			}
+			case 7: {
 				personas[i] = new Persona(true);
-			} else {
+				break;
+			}
+			default:
 				personas[i] = new Persona(false);
 			}
 
