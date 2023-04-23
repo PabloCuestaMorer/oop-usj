@@ -43,27 +43,38 @@ public class Persona {
 	}
 
 	/**
-	 * asñdfañsdflkajsñd
+	 * 
+	 * Realiza las acciones correspondientes a un día en la vida de una persona de
+	 * la población. Si la persona está muerta, no realiza ninguna acción. Si la
+	 * persona está viva, puede:
+	 * 
+	 * - Toser y propagar la enfermedad a personas aleatorias de la población.
+	 * 
+	 * - Sufrir la enfermedad si está infectado, perdiendo una cantidad aleatoria de
+	 * vida (0-10). Si la persona llega a 0 o menos de vida, muere. Si tiene más de
+	 * 0 y menos de 30, sigue infectado. Si tiene 30 o más de vida, se cura de la
+	 * enfermedad.
+	 * 
+	 * - Administrar curas a personas aleatorias de la población si es un Sanitario.
+	 * En ese caso, cada paciente recibe una cantidad aleatoria de vida (0-20) y si
+	 * alcanza o supera 120, se cura de la enfermedad.
+	 * 
 	 * @param poblacion
 	 */
-	// 1.5. Un método unDiaMas, que recibe un objeto de tipo Población y que se
-	// encarga de simular el día de dicha persona.
 	public void unDiaMas(Poblacion poblacion) {
 		// Mientras no este muerto la persona hace dos cosas en el día:
 		if (estado != Estado.MUERTO) {
 			// 1.5.1. toser
 			toser(poblacion);
-			if (estado == Estado.INFECTADO) {
-				// 1.5.2. sufrir la enfermedad, de manera que si esta infectado pierde una
-				// cantidad aleatoria (0-10) de vida.
-				sufrirEnfermedad();
-				if (vida <= 0) {
-					estado = Estado.MUERTO;
-				} else if (vida > 0 && vida < 30) {
-					estado = Estado.INFECTADO;
-				} else if (vida >= 30) {
-					estado = Estado.CURADO;
-				}
+			// 1.5.2. sufrir la enfermedad, de manera que si esta infectado pierde una
+			// cantidad aleatoria (0-10) de vida.
+			sufrirEnfermedad();
+			if (vida <= 0) {
+				estado = Estado.MUERTO;
+			} else if (vida > 0 && vida < 30) {
+				estado = Estado.INFECTADO;
+			} else if (vida >= 30) {
+				estado = Estado.CURADO;
 			}
 		}
 	}

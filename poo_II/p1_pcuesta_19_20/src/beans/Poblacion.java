@@ -4,6 +4,7 @@
 package beans;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -16,17 +17,15 @@ public class Poblacion {
 	private int numInfectados;
 	private int numCurados;
 
+	public Poblacion() {
+	}
+
 	public Poblacion(int numPersonas) {
 		this.numPersonas = numPersonas;
 		personas = new Persona[numPersonas];
 		addPersonas(numPersonas);
-		numInfectados = 0;
-		numCurados = 0;
 	}
 
-	/**
-	 * @param numPersonas
-	 */
 	private void addPersonas(int numPersonas) {
 		for (int i = 0; i < numPersonas; i++) {
 			Random rand = new Random();
@@ -63,6 +62,8 @@ public class Poblacion {
 
 			if (personas[i].getEstado() == Estado.INFECTADO) {
 				numInfectados++;
+			} else {
+				numCurados++;
 			}
 		}
 	}
@@ -89,8 +90,16 @@ public class Poblacion {
 		return personas[rand.nextInt(numPersonas)];
 	}
 
+	/**
+	 * Método que indica si el mundo ha acabado ya, el mundo se acaba cuando todas
+	 * las personas están muertas o todas las personas están curadas o ya no queda
+	 * ningún infectado.
+	 * 
+	 * @return boolean
+	 */
 	public boolean mundoHaAcabado() {
-		return numInfectados == 0 || numCurados == numPersonas || numInfectados + numCurados == numPersonas;
+		return numPersonas == numPersonas - (numCurados + numInfectados) || numCurados == numPersonas
+				|| numInfectados == 0;
 	}
 
 	public void actualizarEstado(int indice, Estado estadoAnterior, Estado estadoNuevo) {
@@ -102,4 +111,38 @@ public class Poblacion {
 		}
 		personas[indice].setEstado(estadoNuevo);
 	}
+
+	/**
+	 * @return the personas
+	 */
+	public Persona[] getPersonas() {
+		return personas;
+	}
+
+	/**
+	 * @param personas the personas to set
+	 */
+	public void setPersonas(Persona[] personas) {
+		this.personas = personas;
+	}
+
+	/**
+	 * @return the numPersonas
+	 */
+	public int getNumPersonas() {
+		return numPersonas;
+	}
+
+	/**
+	 * @param numPersonas the numPersonas to set
+	 */
+	public void setNumPersonas(int numPersonas) {
+		this.numPersonas = numPersonas;
+	}
+
+	@Override
+	public String toString() {
+		return "Poblacion [personas=" + Arrays.toString(personas) + "]";
+	}
+
 }
