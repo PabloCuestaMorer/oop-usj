@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+poo_II/pe2_pcuesta_20_21/target/
+target/
+*/target/*
+*/target/**
