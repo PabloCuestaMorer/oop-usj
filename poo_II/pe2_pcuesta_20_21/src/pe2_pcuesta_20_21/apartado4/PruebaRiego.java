@@ -1,6 +1,3 @@
-/**
- * 
- */
 package pe2_pcuesta_20_21.apartado4;
 
 import pe2_pcuesta_20_21.apartado1.HuertoUrbano;
