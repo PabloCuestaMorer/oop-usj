@@ -169,4 +169,62 @@ public class Indice {
 			return "";
 		}
 	}
+
+	// *****FUNCIONES RECURSIVAS*****
+	/*
+	 * 4. (1 puntos) Haz una versión recursiva de las funciones anteriores que
+	 * funcione para varios niveles de anidamiento y comprobar que funciona:
+	 * 
+	 * 4.1. La función generarExtensiones no hace falta modificarla.
+	 * 
+	 * 4.2. La función generarArchivosRecursivo es igual que generarArchivos pero
+	 * recibe también la probabilidad de crear una carpeta y la va reduciendo cada
+	 * vez que crea una carpeta anidada (para garantizar que converge).
+	 * 
+	 * 4.3. La función generarIndiceRecursivo es igual a generarIndice pero recibe
+	 * también como parámetro de entrada el Map<String,Integer> que esa construyendo
+	 * para incluir los archivos de la carpeta actual (y las que contenga).
+	 */
+
+	public static void generarArchivosRecursivo(Path carpeta, int numArchivos, String[] extensiones,
+			double probabilidadCarpeta) {
+		if (!Files.exists(carpeta)) {
+			try {
+				Files.createDirectories(carpeta);
+			} catch (IOException e) {
+				throw new RuntimeException("No se pudo crear la carpeta: " + carpeta, e);
+			}
+		}
+
+		Random random = new Random();
+		for (int i = 0; i < numArchivos; i++) {
+			if (random.nextDouble() < probabilidadCarpeta) {
+				Path nuevaCarpeta = carpeta.resolve("carpeta" + i);
+				double nuevaProbabilidadCarpeta = probabilidadCarpeta * 0.5;
+				generarArchivosRecursivo(nuevaCarpeta, numArchivos, extensiones, nuevaProbabilidadCarpeta);
+			} else {
+				String extension = extensiones[random.nextInt(extensiones.length)];
+				Path archivo = carpeta.resolve(i + extension);
+				try {
+					Files.createFile(archivo);
+				} catch (IOException e) {
+					throw new RuntimeException("No se pudo crear el archivo: " + archivo, e);
+				}
+			}
+		}
+	}
+
+	public static void generarIndiceRecursivo(Path carpeta, Map<String, Integer> indice) throws IOException {
+		try (DirectoryStream<Path> stream = Files.newDirectoryStream(carpeta)) {
+			for (Path path : stream) {
+				if (Files.isDirectory(path)) {
+					generarIndiceRecursivo(path, indice);
+				} else {
+					String extension = obtenerExtension(path);
+					indice.put(extension, indice.getOrDefault(extension, 0) + 1);
+				}
+			}
+		}
+	}
+
 }
