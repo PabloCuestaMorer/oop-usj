@@ -100,7 +100,7 @@ public class Persona {
 
 	@Override
 	public String toString() {
-		return "\n\tPersona [idCliente=" + idCliente + ", nombre=" + nombre + ", apellido1=" + apellido1
+		return "\n\t\tPersona [idCliente=" + idCliente + ", nombre=" + nombre + ", apellido1=" + apellido1
 				+ ", apellido2=" + apellido2 + ", edad=" + edad + "]";
 	}
 

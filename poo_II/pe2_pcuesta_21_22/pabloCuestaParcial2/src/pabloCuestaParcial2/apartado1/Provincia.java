@@ -54,7 +54,7 @@ public class Provincia {
 	 * 
 	 * @param persona La persona a agregar.
 	 */
-	public void agregarProvincia(Persona persona) {
+	public void agregarPersona(Persona persona) {
 		personas.add(persona);
 	}
 
