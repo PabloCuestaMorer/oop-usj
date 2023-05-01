@@ -12,7 +12,7 @@ public class PruebaRiego {
 			huerto.regar(litrosDeAgua);
 			System.out.println("Se han utilizado " + litrosDeAgua + " litros para regar el huerto");
 		} catch (AguaInsuficienteException e) {
-			System.out.println("No me ha llegado el agua... " + litrosDeAgua + " + 100 = " + (litrosDeAgua + 100));
+			System.out.println("No me ha llegado el agua... " + litrosDeAgua + " + 10 = " + (litrosDeAgua + 10));
 			regarHuerto(huerto, litrosDeAgua + 10);
 		}
 	}

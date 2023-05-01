@@ -5,6 +5,7 @@ import java.util.Set;
 
 import pe2_pcuesta_20_21.apartado1.HuertoUrbano;
 import pe2_pcuesta_20_21.apartado2.HelperHuerto;
+import pe2_pcuesta_20_21.apartado3.Persistencia;
 import pe2_pcuesta_20_21.apartado4.AguaInsuficienteException;
 import pe2_pcuesta_20_21.apartado4.PruebaRiego;
 
@@ -33,23 +34,23 @@ public class Main {
 
 		HuertoUrbano huerto = HelperHuerto.createHuerto(5000, 22, nombresDePlantas);
 //		System.out.println(huerto);
-
-		// 3
-		// 3.4. un método main desde el que se pruebe el correcto funcionamiento de las
-		// funciones anteriores.
-
-		// 3.1 Guardar el objeto huerto en un archivo JSON
+//
+//		// 3
+//		// 3.4. un método main desde el que se pruebe el correcto funcionamiento de las
+//		// funciones anteriores.
+//
+//		// 3.1 Guardar el objeto huerto en un archivo JSON
 //		Persistencia.toFile(huerto, "huerto_urbano.json");
-
-		// 3.2 Leer el archivo JSON y crear un objeto HuertoUrbano a partir de su
-		// contenido
+//
+//		// 3.2 Leer el archivo JSON y crear un objeto HuertoUrbano a partir de
+//		// su contenido
 //		HuertoUrbano huertoLeido = Persistencia.fromFile("huerto_urbano.json");
 //		System.out.println("Huerto leído desde archivo JSON:");
 //		System.out.println(huertoLeido);
-
-		// 3.3 Crear la jerarquía de directorios y archivos
+//
+//		// 3.3 Crear la jerarquía de directorios y archivos
 //		Persistencia.toJerarquia(huerto);
-
+//
 //		try {
 //			huerto.regar(6000); // Ajusta la cantidad de agua según sea necesario
 //		} catch (AguaInsuficienteException e) {
@@ -63,7 +64,7 @@ public class Main {
 		 * llama a la función regarHuerto pasando el huerto y 10 litros de agua como
 		 * parámetro.
 		 */
-//		PruebaRiego.regarHuerto(huerto, 10);
+		PruebaRiego.regarHuerto(huerto, 10);
 
 	}
 

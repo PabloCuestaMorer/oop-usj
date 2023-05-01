@@ -63,6 +63,7 @@ public class HuertoUrbano {
 	 * @throws AguaInsuficienteException
 	 */
 	public void regar(int litrosDeAgua) throws AguaInsuficienteException {
+		int litrosNecesarios = 0;
 		for (Parcela parcela : parcelas) {
 			for (Cultivo cultivo : parcela.getCultivos()) {
 				int consumoDeAgua = 0;
@@ -74,16 +75,14 @@ public class HuertoUrbano {
 					consumoDeAgua = 1;
 				}
 
-				for (int i = 0; i < cultivo.getCantidadDePlantas(); i++) {
-					if (litrosDeAgua >= consumoDeAgua) {
-						litrosDeAgua -= consumoDeAgua;
-					} else {
-						throw new AguaInsuficienteException("No hay suficiente agua para regar todas las plantas");
-					}
-				}
+				litrosNecesarios += consumoDeAgua * cultivo.getCantidadDePlantas();
 			}
 		}
-		System.out.println("He regado todo!!");
+		if (litrosDeAgua < litrosNecesarios) {
+			throw new AguaInsuficienteException("No hay suficiente agua para regar todas las plantas");
+		} else {
+			System.out.print("He regado todo!! ");
+		}
 	}
 
 	@Override
