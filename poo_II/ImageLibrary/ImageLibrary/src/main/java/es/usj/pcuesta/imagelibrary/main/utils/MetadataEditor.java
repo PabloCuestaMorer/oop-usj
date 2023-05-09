@@ -11,6 +11,7 @@ import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 import org.apache.commons.imaging.ImageReadException;
 import org.apache.commons.imaging.ImageWriteException;
@@ -54,7 +55,9 @@ public class MetadataEditor {
 				return;
 			}
 
-			TiffOutputDirectory exifDirectory = outputSet.getOrCreateRootDirectory();
+//			TiffOutputDirectory exifDirectory = outputSet.getOrCreateRootDirectory();
+			TiffOutputDirectory exifDirectory = outputSet.getOrCreateExifDirectory();
+
 
 			// Modificar la fecha de captura
 			if (captureDate != null) {
@@ -95,9 +98,16 @@ public class MetadataEditor {
 
 	private TiffOutputSet getOutputSet(File imageFile) throws ImageReadException, IOException, ImageWriteException {
 		ImageMetadata metadata = Imaging.getMetadata(imageFile);
-		if (metadata instanceof TiffImageMetadata) {
-			TiffImageMetadata tiffMetadata = (TiffImageMetadata) metadata;
-			return tiffMetadata.getOutputSet();
+//		if (metadata instanceof TiffImageMetadata) {
+//			TiffImageMetadata tiffMetadata = (TiffImageMetadata) metadata;
+//			return tiffMetadata.getOutputSet();
+//		}
+		if (metadata instanceof JpegImageMetadata) {
+		    JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
+		    TiffImageMetadata exifMetadata = jpegMetadata.getExif();
+		    if (exifMetadata != null) {
+		        return exifMetadata.getOutputSet();
+		    }
 		}
 		return new TiffOutputSet();
 	}
@@ -159,4 +169,25 @@ public class MetadataEditor {
 		int height = image.getHeight();
 		return new int[] { width, height };
 	}
+	
+	public static Date getRandomCaptureDate(int minYear, int maxYear) {
+	    Random random = new Random();
+	    int randomYear = random.nextInt(minYear, (maxYear+1));
+	    int randomMonth = random.nextInt(12) + 1;
+	    int randomDay = random.nextInt(28) + 1; // Para simplificar, asumimos que todos los meses tienen al menos 28 días
+	    int randomHour = random.nextInt(24);
+	    int randomMinute = random.nextInt(60);
+	    int randomSecond = random.nextInt(60);
+	    
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	    String randomDateString = String.format("%d-%02d-%02d %02d:%02d:%02d", randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond);
+	    
+	    try {
+	        return dateFormat.parse(randomDateString);
+	    } catch (ParseException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+
 }

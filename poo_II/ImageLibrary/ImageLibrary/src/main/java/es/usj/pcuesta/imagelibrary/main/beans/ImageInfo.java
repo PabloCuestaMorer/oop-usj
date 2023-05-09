@@ -3,6 +3,10 @@ package es.usj.pcuesta.imagelibrary.main.beans;
 import java.util.Date;
 
 /**
+ * 2.1. (Formato) Diseña una clase/clases adecuadas para almacenar la
+ * información relevante de las imágenes. Decide que información quieres guardar
+ * de cada imagen, y en que colección/colecciones guardas las imágenes.
+ * 
  * @author Pablo Cuesta Morer
  * @date 2023-05-02
  */

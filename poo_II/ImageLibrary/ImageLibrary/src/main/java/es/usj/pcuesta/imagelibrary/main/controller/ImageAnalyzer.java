@@ -21,15 +21,21 @@ import es.usj.pcuesta.imagelibrary.main.utils.MetadataEditor;
 public class ImageAnalyzer {
 	public List<ImageInfo> analyzeImages(String folderPath) throws ImageReadException {
 		List<ImageInfo> imageInfoList = new ArrayList<>();
+		// Create the file again in case it not exist do not broke the app
 		File folder = new File(folderPath);
 		analyzeFolder(folder, imageInfoList);
 		return imageInfoList;
 	}
 
-	private void analyzeFolder(File folder, List<ImageInfo> imageInfoList) throws ImageReadException {
+	private void analyzeFolder(File folder, List<ImageInfo> imageInfoList) {
 		MetadataEditor metadataEditor = new MetadataEditor();
 
-		for (File file : folder.listFiles()) {
+		File[] files = folder.listFiles();
+		if (files == null) {
+			return;
+		}
+
+		for (File file : files) {
 			if (file.isDirectory()) {
 				analyzeFolder(file, imageInfoList);
 			} else if (isImage(file)) {
@@ -44,7 +50,8 @@ public class ImageAnalyzer {
 							gpsCoordinates[1], imageSize[0], imageSize[1]);
 
 					imageInfoList.add(imageInfo);
-				} catch (IOException e) {
+				} catch (IOException | ImageReadException e) {
+					System.err.println("Error al analizar la imagen: " + file.getAbsolutePath());
 					e.printStackTrace();
 				}
 			}

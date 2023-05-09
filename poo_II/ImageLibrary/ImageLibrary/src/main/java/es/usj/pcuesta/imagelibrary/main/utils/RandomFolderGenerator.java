@@ -1,6 +1,10 @@
 package es.usj.pcuesta.imagelibrary.main.utils;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -24,7 +28,32 @@ public class RandomFolderGenerator {
 		this.random = new Random();
 	}
 
+	/**
+	 * 
+	 * @param basePath
+	 * @return
+	 */
 	public List<File> generateFolders(String basePath) {
+		// Create the base directory
+		System.out.println("Generating folders at " + basePath + ": ");
+        Path path = Paths.get(basePath);
+
+        try {
+        	if (!Files.exists(path)) {
+        		// If the dir not exist create it
+        		Files.createDirectory(path);
+        	} else {
+        		// If the dir exist clean it
+        		Files.walk(path)
+                .sorted(java.util.Comparator.reverseOrder())
+                .map(Path::toFile)
+                .forEach(java.io.File::delete);
+        	}
+		} catch (IOException e) {
+			System.err.println("ERROR: " + e.getMessage());
+		}
+        
+        // Create the folder hierarchy 
 		return createFolderHierarchy(basePath, 0);
 	}
 
@@ -45,6 +74,7 @@ public class RandomFolderGenerator {
 			File newFolder = new File(folderPath);
 			if (!createdFolders.contains(newFolder)) {
 				newFolder.mkdirs();
+				System.out.println("\t New folder created at : " + newFolder.getAbsolutePath());
 				createdFolders.add(newFolder);
 				createdFolders.addAll(createFolderHierarchy(folderPath, currentLevel + 1));
 			}
