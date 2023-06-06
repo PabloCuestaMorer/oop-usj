@@ -9,7 +9,7 @@ import org.apache.commons.imaging.ImageReadException;
 import org.apache.commons.imaging.ImageWriteException;
 
 import es.usj.pcuesta.imagelibrary.main.beans.ImageInfo;
-import es.usj.pcuesta.imagelibrary.main.controller.ImageAnalyzer;
+import es.usj.pcuesta.imagelibrary.main.controller.ImageController;
 import es.usj.pcuesta.imagelibrary.main.utils.ImageGenerator;
 import es.usj.pcuesta.imagelibrary.main.utils.MetadataEditor;
 import es.usj.pcuesta.imagelibrary.main.utils.RandomFolderGenerator;
@@ -46,22 +46,19 @@ public class Main {
 
 //-------------------- 2. Análisis de imágenes (~3 puntos):
 
-		ImageAnalyzer imageAnalyzer = new ImageAnalyzer();
+		ImageController imageController = new ImageController();
 
 		// 2.2. Analizar imágenes en una carpeta dada
-		List<ImageInfo> images = imageAnalyzer.analyzeImages("coleccion_imagenes");
+		List<ImageInfo> images = imageController.analyzeImages("coleccion_imagenes");
 		System.out.println("Imágenes analizadas: " + images.size());
 
 		// 2.3. Ordenar colecciones de imágenes
-		imageAnalyzer.sortImages(images, ImageAnalyzer.SortCriteria.DATE_ASCENDING);
-		System.out.println("\nImágenes ordenadas por fecha de captura ascendente:");
-		for (ImageInfo image : images) {
-			System.out.println(image);
-		}
+		// Implementado en la interfaz
 
 		// 2.4. Filtrar colecciones de imágenes
-		List<ImageInfo> filteredImages = imageAnalyzer.filterImages(images, img -> img.getWidth() >= 500);
-		System.out.println("\nImágenes filtradas con ancho de al menos 500 píxeles:");
+		String name = "nombrePrueba";
+		List<ImageInfo> filteredImages = imageController.filterByName(images, name);
+		System.out.println("\nImágenes filtradas por nombre \" " + name + "\"");
 		for (ImageInfo image : filteredImages) {
 			System.out.println(image);
 		}

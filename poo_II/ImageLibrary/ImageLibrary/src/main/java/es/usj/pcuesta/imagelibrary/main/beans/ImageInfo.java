@@ -7,6 +7,10 @@ import java.util.Date;
  * información relevante de las imágenes. Decide que información quieres guardar
  * de cada imagen, y en que colección/colecciones guardas las imágenes.
  * 
+ * The ImageInfo class represents relevant information about an image. It stores
+ * attributes such as file name, file path, capture date, coordinates, width,
+ * and height.
+ * 
  * @author Pablo Cuesta Morer
  * @date 2023-05-02
  */
@@ -19,6 +23,17 @@ public class ImageInfo {
 	private int width;
 	private int height;
 
+	/**
+	 * Constructs a new ImageInfo object with the specified attributes.
+	 * 
+	 * @param fileName    the file name of the image
+	 * @param filePath    the file path of the image
+	 * @param captureDate the capture date of the image
+	 * @param latitude    the latitude coordinate of the image's location
+	 * @param longitude   the longitude coordinate of the image's location
+	 * @param width       the width of the image in pixels
+	 * @param height      the height of the image in pixels
+	 */
 	public ImageInfo(String fileName, String filePath, Date captureDate, Double latitude, Double longitude, int width,
 			int height) {
 		this.fileName = fileName;
@@ -29,8 +44,6 @@ public class ImageInfo {
 		this.width = width;
 		this.height = height;
 	}
-
-	// Getters y setters para cada atributo
 
 	public String getFileName() {
 		return fileName;
@@ -94,5 +107,4 @@ public class ImageInfo {
 				+ captureDate + ", latitude=" + latitude + ", longitude=" + longitude + ", width=" + width + ", height="
 				+ height + '}';
 	}
-
 }
