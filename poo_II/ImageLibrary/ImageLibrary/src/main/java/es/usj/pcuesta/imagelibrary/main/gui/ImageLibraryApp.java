@@ -61,7 +61,7 @@ import es.usj.pcuesta.imagelibrary.main.utils.RandomFolderGenerator;
  */
 public class ImageLibraryApp {
 
-	private final static String IMAGES_DEFAULT_PATH = "coleccion_imagenes";
+	private static String imagesCurrentPath = "coleccion_imagenes";
 	private static JTable imageInfoTable;
 	private static JLabel imageView;
 	private static List<ImageInfo> allImages;
@@ -112,7 +112,7 @@ public class ImageLibraryApp {
 	private static List<ImageInfo> getImages(ImageController imageController, JFrame frame) {
 		allImages = new ArrayList<>();
 		try {
-			allImages = imageController.analyzeImages(IMAGES_DEFAULT_PATH);
+			allImages = imageController.analyzeImages(imagesCurrentPath);
 		} catch (ImageReadException e1) {
 			showErrorMessage(frame, e1, "Error reading images");
 			frame.dispose();
@@ -238,7 +238,8 @@ public class ImageLibraryApp {
 			// Create folders and images in the selected directory
 			if (returnValue == JFileChooser.APPROVE_OPTION) {
 				File selectedDirectory = fileChooser.getSelectedFile();
-				createFoldersAndImages(selectedDirectory.getPath());
+				imagesCurrentPath = selectedDirectory.getPath();
+				createFoldersAndImages(imagesCurrentPath);
 				try {
 					analyzeImages(selectedDirectory.getPath());
 				} catch (ImageReadException e1) {
@@ -268,8 +269,9 @@ public class ImageLibraryApp {
 			// If a directory is selected, analyze the images in that directory
 			if (returnValue == JFileChooser.APPROVE_OPTION) {
 				File selectedDirectory = fileChooser.getSelectedFile();
+				imagesCurrentPath = selectedDirectory.getPath();
 				try {
-					analyzeImages(selectedDirectory.getPath());
+					analyzeImages(imagesCurrentPath);
 				} catch (ImageReadException e1) {
 					showErrorMessage(frame, e1, "Error reading images");
 					frame.dispose();
@@ -312,7 +314,10 @@ public class ImageLibraryApp {
 			for (File image : images) {
 				try {
 					Date captureDate = MetadataEditor.getRandomCaptureDate(1998, 2023);
+					// Latitud valida -90 a +90 grados. Math.random() * 180 = 0 a 180, - 90 = -90 a
+					// +90.
 					Double latitude = Math.random() * 180 - 90;
+					// Latitud valida -180 a +180 grados.
 					Double longitude = Math.random() * 360 - 180;
 					metadataEditor.editMetadata(image.getAbsolutePath(), captureDate, latitude, longitude);
 				} catch (ImageWriteException e) {
@@ -332,7 +337,10 @@ public class ImageLibraryApp {
 		ImageController imageController = new ImageController();
 		List<ImageInfo> images = new ArrayList<>();
 		images = imageController.analyzeImages(path);
-		System.out.println("Analyzed Images: " + images.size()); // Update table model
+		System.out.println("Analyzed Images: " + images.size());
+		//Update list of images
+		allImages = getImages(imageController, initFrame());
+		// Update table model
 		ImageInfoTableModel tableModel = (ImageInfoTableModel) imageInfoTable.getModel();
 		tableModel.updateImageInfoList(images);
 	}
